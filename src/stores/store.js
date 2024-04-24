@@ -36,7 +36,7 @@ export const useStore = defineStore('store', () => {
   }
 
   const sortedIpDataList = computed(() => {
-    const res = [...ipDataList.value]; // Создание копии массива, чтобы избежать мутации исходного массива
+    const res = [...ipDataList.value];
 
     if (sortByCountry.value === '+') {
       res.sort((a, b) => (a.country < b.country ? -1 : 1));
@@ -61,9 +61,9 @@ export const useStore = defineStore('store', () => {
   }
 
   const filterednSortedIpDataList = computed(() => {
-    const searchInput = tableSearchInput.value.toLowerCase(); // Преобразуем в нижний регистр для удобства сравнения
+    const searchInput = tableSearchInput.value.toLowerCase();
     return sortedIpDataList.value.filter(item => {
-      return item.country.toLowerCase().includes(searchInput); // Фильтруем по полю country
+      return item.country.toLowerCase().includes(searchInput);
     });
   });
 
