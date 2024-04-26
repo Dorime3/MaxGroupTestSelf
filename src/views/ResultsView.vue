@@ -17,10 +17,14 @@ const store = useStore()
         :prefix-icon="Search"
       />
     </div>
+    {{ store.hoveredQueryCopyBtn }}
     <el-table
       :data="store.filterednSortedIpDataList"
       border
+      max-height="400px"
       ref="selectableTableRef"
+      @cell-mouse-enter="store.toggleCopyBtn"
+      @cell-mouse-leave="store.toggleCopyBtn"
       @selection-change="store.handleSelectionChange">
       <el-table-column v-model="store.selectedRows" type="selection" width="40" />
       <el-table-column>
@@ -112,7 +116,7 @@ const store = useStore()
   </section>
 </template>
 
-<style>
+<style scoped>
 .container {
   margin: 80px auto 0;
   width: 1240px;

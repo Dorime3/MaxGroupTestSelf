@@ -3,7 +3,8 @@ import { useStore } from '../stores/store'
 
 const {
   form,
-  submitData
+  submitData,
+    isDebounce
 } = useStore()
 
 </script>
@@ -23,7 +24,7 @@ const {
       class="ip-list"
     />
     <div class="form-actions">
-      <el-button size="large" @click="submitData">
+      <el-button :disabled="isDebounce" size="large" @click="submitData">
         Отправить
       </el-button>
     </div>
