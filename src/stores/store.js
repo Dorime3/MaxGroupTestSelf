@@ -44,6 +44,14 @@ export const useStore = defineStore('store', () => {
         },
     ])
 
+    const copyQueryBtn = async () => {
+        try {
+            await navigator.clipboard.writeText(hoveredQueryCopyBtn.value[0])
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     const getData = async (ip) => {
         try {
             const res = await axiosApiInstance.get(ip)
@@ -139,6 +147,7 @@ export const useStore = defineStore('store', () => {
         submitData,
         ipDataList,
         selectedRows,
+        copyQueryBtn,
         tableSearchInput,
         sortByCountry,
         sortedIpDataList,
@@ -150,6 +159,6 @@ export const useStore = defineStore('store', () => {
         removeSingleRow,
         filterednSortedIpDataList,
         toggleCopyBtn,
-        hoveredQueryCopyBtn
+        hoveredQueryCopyBtn,
     }
 })
