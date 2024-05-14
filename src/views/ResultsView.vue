@@ -1,5 +1,5 @@
-<script setup>
-import {useStore} from '../stores/store'
+<script setup lang="ts">
+import {useStore} from '../stores/store.ts'
 import {Search, Select, Close, Delete, CopyDocument} from '@element-plus/icons-vue'
 import {ElTable} from 'element-plus'
 
